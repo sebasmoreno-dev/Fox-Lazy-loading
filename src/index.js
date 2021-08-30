@@ -3,13 +3,7 @@
  * When you're ready to start on your site, clear the file. Happy hacking!
  **/
 
-{/* <div class="p-4">
-        <img
-            class="mx-auto"
-            width="320"
-            src="https://randomfox.ca/images/1.jpg"
-            alt="">
-    </div> */}
+import { registerImage } from './lazy'
 
     //paso 1
 const minium = 1;
@@ -37,12 +31,13 @@ const nuevaImagen = createImageNode();
 const mountNode = document.getElementById("images");
 
 
-const addButton = document.querySelector("button")
+const addButton = document.querySelector("button");
 
-//4
+//4 agregamos una imagen y la observamos
 const addImage = () => {
     const newImage = createImageNode();
-    mountNode.appendChild(nuevaImagen);
+    mountNode.appendChild(newImage);
+    registerImage(newImage);
 }
 
 
