@@ -18,11 +18,12 @@ const createImageNode = () => {
     const imagen = document.createElement("img");
     imagen.className = "mx-auto";
     imagen.width = "320";
-    imagen.src = `https://randomfox.ca/images/${randomFox()}.jpg`; //To do
+    imagen.dataset.src = `https://randomfox.ca/images/${randomFox()}.jpg`; //To do
 
 
     //paso 2
     container.appendChild(imagen);
+    
     return container;
 }
 
