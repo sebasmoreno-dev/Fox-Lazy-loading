@@ -20,19 +20,28 @@ const createImageNode = () => {
     imagen.width = "320";
     imagen.dataset.src = `https://randomfox.ca/images/${randomFox()}.jpg`; //To do
 
+    const imageWrapper = document.createElement("div");
+    imageWrapper.className = "bg-gray-300";
+    imageWrapper.style.minHeight = "100px";
+    imageWrapper.style.display = "inline-block";
 
+    imageWrapper.appendChild(imagen);
+    container.appendChild(imageWrapper);
     //paso 2
-    container.appendChild(imagen);
-    
+    /* container.appendChild(imagen); */
+
+    appendedImages++;
+    printLog();
+
     return container;
 }
 
 //paso 3
-const nuevaImagen = createImageNode();
 const mountNode = document.getElementById("images");
 
 
-const addButton = document.querySelector("button");
+const addButton = document.querySelector("#add");
+const cleanButton = document.querySelector("#clean");
 
 //4 agregamos una imagen y la observamos
 const addImage = () => {
@@ -41,6 +50,14 @@ const addImage = () => {
     registerImage(newImage);
 }
 
+const cleanImages = () => {
+    console.log(mountNode.childNodes);
+
+    [...mountNode.childNodes].forEach(child => {
+        child.remove();
+    })
+}
 
 
 addButton.addEventListener("click", addImage);
+cleanButton.addEventListener("click", cleanImages);
